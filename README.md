@@ -29,7 +29,7 @@ docker run -td \
 	-p 2222:22  \
 	--volume ./borg/sshkeys:/sshkeys \
 	--volume ./borg/backup:/backup \
-	nold360/borgserver:latest
+	git.merp.digital/eranmorkon/borgserver:1.0.0
 ```
 
 
@@ -45,7 +45,7 @@ See the the documentation for all available arguments: [borgbackup.readthedocs.i
 
 ##### Example
 ```
-docker run --rm -e BORG_SERVE_ARGS="--progress --debug" (...) nold360/borgserver
+docker run --rm -e BORG_SERVE_ARGS="--progress --debug" (...) git.merp.digital/eranmorkon/borgserver
 ```
 
 #### BORG_APPEND_ONLY
@@ -62,7 +62,7 @@ To declare a client as admin, set this variable to the name of the client/sshkey
 
 ##### Example
 ```
-docker run --rm -e BORG_APPEND_ONLY="yes" -e BORG_ADMIN="nolds_notebook" (...) nold360/borgserver
+docker run --rm -e BORG_APPEND_ONLY="yes" -e BORG_ADMIN="nolds_notebook" (...) git.merp.digital/eranmorkon/borgserver
 ```
 
 To prune repos from another client, you have to add the path to the repository in the clients directory:
@@ -132,10 +132,3 @@ And create your first backup!
 ```
  $ borg create backup:my_first_borg_repo::documents-2017-11-01 /home/user/MyImportentDocs
 ```
-
-## Tags
-
-All images are freshly built every week & published as `nold360/borgserver` with the following tags:
- - Next / Unstable [borg 1.2.0]: `bookworm`, `1.2.0`
- - Latest / Stable [borg 1.1.16]: `bullseye`, `1.1.16`, `latest`
- - Legacy / Buster [borg 1.1.9 ]: `buster`, `1.1.9`
